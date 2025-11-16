@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinh Lam Nguyen - Software Engineer</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="navbar">
+  <ul class="nav-links">
+    <li><a href="#about" class="active">About Me</a></li>
+    <li><a href="#projects">Project highlights</a></li>
+    <li><a href="#skills">Technical skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="about" class="hero">
+  <div class="hero-left">
+    <p class="greeting">Hi, I am</p>
+    <h1 class="name">Nguyen Dinh Lam </h1>
+    <p class="subtitle">and I'm a <span class="highlight">Software Engineer</span></p>
+    <button class="consultation-btn">Book a Free Consultation</button>
+
+    <div class="social-links">
+      <p>my socials</p>
+      <div class="social-icons">
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/XwolveX" class="social-icon"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-center">
+    <div class="profile-circle">
+      <img th:src="@{/images/profile.png}" alt="Profile" class="profile-img">
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <h2 class="tagline">
+      <span class="highlight-red">About Me</span><br>
+    </h2>
+    <p class="description">
+      I'm a Third-year <span class="highlight-red">Software Engineer</span> student at RMIT University Vietnam
+      with a strong passion for technology, both software and hardware. Possesses solid knowledge of <span class="highlight-red">OOP</span>,<span class="highlight-red">MVVM</span> and <span class="highlight-red">DSA</span>,
+      supported by hands-on experience across academic and personal projects. Proficient in leveraging AI-assisted
+      development tools to accelerate coding, optimization, and debugging. Quick to learn, effective in troubleshooting,
+      and capable of solving technical challenges in real-world environments.
+    </p>
+    <div class="helping-box">
+      <p>I can code in <span class="highlight-red typing-text" id="typingText"></span><span class="cursor">|</span></p>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="projects">
+  <h2 class="section-title">Project Highlights</h2>
+  <div class="projects-grid">
+    <div th:each="project : ${projects}" class="project-card">
+      <div class="project-header">
+        <h3 th:text="${project.title}"></h3>
+      </div>
+      <div class="project-body">
+        <p th:text="${project.description}"></p>
+        <div class="tech-stack">
+                        <span th:each="tech : ${project.technologies}"
+                              th:text="${tech}"
+                              class="tech-tag"></span>
+        </div>
+        <a th:href="${project.link}"
+           th:if="${project.link != '#'}"
+           class="project-link"
+           target="_blank">View Project →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills">
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="skills-container">
+    <div th:each="skill : ${skills}" class="skill-category">
+      <h3 th:text="${skill.category}"></h3>
+      <div class="skill-list">
+                    <span th:each="item : ${skill.items}"
+                          th:text="${item}"
+                          class="skill-item"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="Experience">
+  <h2 class="section-title">Experience</h2>
+  <div class="experience-timeline">
+    <div th:each="exp : ${experiences}" class="experience-item">
+      <h3 th:text="${exp.title}"></h3>
+      <div class="company" th:text="${exp.company}"></div>
+      <div class="period" th:text="${exp.period}"></div>
+      <ul>
+        <li th:each="resp : ${exp.responsibilities}" th:text="${resp}"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2 class="section-title">Get In Touch</h2>
+  <div class="contact-container">
+    <p class="contact-intro">
+      I'm currently looking for new opportunities. Whether you have a question
+      or just want to say hi, feel free to reach out!
+    </p>
+    <div class="contact-info">
+      <div class="contact-item">
+        <span>📧</span>
+        <a href="mailto:dinhlam2901@gmail.com">dinhlam2901@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <span>📱</span>
+        <a href="tel:0329796224">0329 796 224</a>
+      </div>
+      <div class="contact-item">
+        <span>💻</span>
+        <a href="https://github.com/XwolveX" target="_blank">github.com/XwolveX</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
