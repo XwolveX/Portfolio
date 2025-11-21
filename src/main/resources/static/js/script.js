@@ -97,14 +97,94 @@ document.querySelectorAll('.project-card, .skill-category, .experience-item').fo
     observer.observe(el);
 });
 
-// // Profile Image Animation
-// const profileCircle = document.querySelector('.profile-circle');
-// if (profileCircle) {
-//     profileCircle.addEventListener('mouseenter', function() {
-//         this.style.transform = 'scale(1.05) rotate(5deg)';
-//     });
-//
-//     profileCircle.addEventListener('mouseleave', function() {
-//         this.style.transform = 'scale(1) rotate(0deg)';
-//     });
-// }
+// Project Video Switcher with Improved Description Formatting
+function switchProjectVideo(projectCard) {
+    const videoUrl = projectCard.getAttribute('data-video-url');
+    const longDescription = projectCard.getAttribute('data-long-description');
+    const title = projectCard.getAttribute('data-title');
+    const description = projectCard.getAttribute('data-description');
+
+    const videoElement = document.getElementById('projectVideo');
+    const videoSource = videoElement.querySelector('source');
+
+    // Remove active class from all project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.classList.remove('active');
+    });
+
+    // Add active class to clicked card
+    projectCard.classList.add('active');
+
+    // Update video source
+    if (videoUrl && videoSource) {
+        videoSource.src = videoUrl;
+        videoElement.load();
+    }
+
+    // Update title
+    document.getElementById('projectTitleMain').textContent = title;
+    document.getElementById('projectOverview').textContent = description;
+
+    // Format and update long description
+    const descriptionContainer = document.getElementById('projectLongDescription');
+    if (longDescription) {
+        const formattedDescription = formatLongDescription(longDescription);
+        descriptionContainer.innerHTML = formattedDescription;
+    }
+
+    // Scroll to video section smoothly
+    const videoSection = document.querySelector('.video-demo-section');
+    if (videoSection) {
+        videoSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+}
+
+// Format long description to HTML with proper structure
+function formatLongDescription(text) {
+    if (!text) return '';
+
+    // Split by double newlines to separate sections
+    const sections = text.split('\n\n');
+    let html = '';
+
+    sections.forEach(section => {
+        const lines = section.trim().split('\n');
+
+        if (lines.length === 0) return;
+
+        // Check if it's a heading (starts with "For " or similar patterns)
+        const firstLine = lines[0].trim();
+        if (firstLine.startsWith('For ') || firstLine.length < 50 && !firstLine.includes(':')) {
+            html += `<h4>${firstLine}</h4><ul>`;
+
+            // Process remaining lines as list items
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (line) {
+                    html += `<li>${line}</li>`;
+                }
+            }
+            html += '</ul>';
+        } else {
+            // Regular paragraph or list
+            lines.forEach(line => {
+                const trimmedLine = line.trim();
+                if (trimmedLine) {
+                    html += `<li>${trimmedLine}</li>`;
+                }
+            });
+        }
+    });
+
+    return html;
+}
+// Auto-format description on page load
+window.addEventListener('DOMContentLoaded', function() {
+    const descContainer = document.getElementById('projectLongDescription');
+    if (descContainer) {
+        const rawText = descContainer.textContent;
+        if (rawText && rawText.trim()) {
+            descContainer.innerHTML = formatLongDescription(rawText);
+        }
+    }
+});

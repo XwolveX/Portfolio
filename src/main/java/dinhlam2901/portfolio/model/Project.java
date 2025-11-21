@@ -15,5 +15,6 @@ public class Project {
     private String description;
     private List<String> technologies;
     private String link;
-    private String imageUrl;
+    private String longDescription;
+    private String videoUrl;
 }

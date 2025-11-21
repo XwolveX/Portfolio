@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dinh Lam Nguyen - Software Engineer</title>
   <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 <nav class="navbar">
@@ -60,21 +61,65 @@
 <section id="projects" class="projects">
   <h2 class="section-title">Project Highlights</h2>
   <div class="projects-grid">
-    <div th:each="project : ${projects}" class="project-card">
+    <div th:each="project, iterStat : ${projects}"
+         class="project-card"
+         th:classappend="${iterStat.index == 0} ? 'active' : ''"
+         th:attr="data-video-url=${project.videoUrl},
+              data-long-description=${project.longDescription},
+              data-title=${project.title},
+              data-description=${project.description}"
+         onclick="switchProjectVideo(this)">
       <div class="project-header">
         <h3 th:text="${project.title}"></h3>
       </div>
       <div class="project-body">
         <p th:text="${project.description}"></p>
         <div class="tech-stack">
-                        <span th:each="tech : ${project.technologies}"
-                              th:text="${tech}"
-                              class="tech-tag"></span>
+          <span th:each="tech : ${project.technologies}"
+                th:text="${tech}"
+                class="tech-tag"></span>
         </div>
         <a th:href="${project.link}"
            th:if="${project.link != '#'}"
            class="project-link"
            target="_blank">View Project →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Demo Section - Improved Layout -->
+  <div class="video-demo-section">
+    <div class="video-demo-header">
+      <h3 class="video-demo-title">Project Showcase</h3>
+      <p class="video-demo-subtitle">Click on any project card above to see its demo</p>
+    </div>
+
+    <div class="demo-content-wrapper">
+      <!-- Video Container -->
+      <div class="video-container">
+        <video id="projectVideo" controls>
+          <source th:src="${projects[0].videoUrl}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- Project Info Panel -->
+      <div class="project-info-panel">
+        <div class="project-title-section">
+          <h4 class="project-title-main" id="projectTitleMain" th:text="${projects[0].title}">
+            FieldInspection App
+          </h4>
+          <span class="project-badge">Featured</span>
+          <p class="project-subtitle">Mobile Application • 2024</p>
+        </div>
+
+        <div class="description-content" id="descriptionContent">
+          <div class="feature-highlight">
+            <p><strong>Overview:</strong> <span id="projectOverview" th:text="${projects[0].description}"></span></p>
+          </div>
+
+          <div id="projectLongDescription" th:text="${projects[0].longDescription}"></div>
+        </div>
       </div>
     </div>
   </div>
