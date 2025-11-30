@@ -1,0 +1,156 @@
+/* CSS Riêng cho trang Game Tetris */
+body {
+    background-color: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 20px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.game-wrapper {
+    display: flex;
+    gap: 30px; /* Tăng khoảng cách giữa game và sidebar */
+
+    /* FIX QUAN TRỌNG: Giúp khung tự giãn theo nội dung */
+    width: fit-content;
+    max-width: 95vw; /* Không để quá to trên màn hình nhỏ */
+    flex-wrap: wrap; /* Cho phép xuống dòng nếu màn hình quá bé */
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(196, 30, 58, 0.3);
+    box-shadow: 0 0 50px rgba(196, 30, 58, 0.1);
+    margin-top: 20px;
+}
+
+canvas#tetris {
+    border: 2px solid #333;
+    background-color: #000;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 140px;
+}
+
+.stat-box {
+    background: rgba(0,0,0,0.3);
+    padding: 15px 10px;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 3px solid #c41e3a; /* Màu đỏ chủ đạo từ style.css */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+/* Canvas Next Block không cần viền */
+canvas#nextBlock {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.controls-hint {
+    margin-top: 20px;
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.back-btn {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-btn:hover {
+    color: #c41e3a;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-5px);
+}
+
+/* Styles cho nút bấm (kế thừa class cta-button nếu cần ghi đè thêm) */
+.game-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Modal Game Over */
+.modal {
+    display: none; /* Mặc định ẩn */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #1a1a1a;
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid #c41e3a;
+    box-shadow: 0 0 50px rgba(196, 30, 58, 0.3);
+    min-width: 300px;
+}
+
+.modal-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #c41e3a;
+}
+
+.modal-content p {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 30px;
+}

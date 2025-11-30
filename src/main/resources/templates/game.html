@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Tetris | Nguyen Dinh Lam</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/tetrisgame.css}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<a href="/" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+
+<h1 style="color: white; margin-bottom: 0.5rem; margin-top: 1rem;">TETRIS PROJECT</h1>
+<p style="color: #666; font-size: 0.9rem;">Ported from C (Raspberry Pi) to JavaScript</p>
+
+<div class="game-wrapper">
+    <canvas id="tetris" width="240" height="400"></canvas>
+
+    <div class="sidebar">
+        <div class="stat-box">
+            <div class="stat-label">Next</div>
+            <canvas id="nextBlock" width="80" height="80"></canvas>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-label">Score</div>
+            <div class="stat-value" id="score">0</div>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-label">Lines</div>
+            <div class="stat-value" id="lines">0</div>
+        </div>
+
+        <button class="cta-button game-btn" onclick="resetGame()">
+            <i class="fas fa-redo"></i> New Game
+        </button>
+        <button class="cta-button game-btn" onclick="togglePause()" style="background-color: #333;">
+            <i class="fas fa-pause"></i> Pause
+        </button>
+
+        <div class="controls-hint">
+            <strong>Controls:</strong><br>
+            <i class="fas fa-arrow-left"></i> Move Left<br>
+            <i class="fas fa-arrow-right"></i> Move Right<br>
+            <i class="fas fa-arrow-up"></i> Rotate<br>
+            <i class="fas fa-arrow-down"></i> Soft Drop
+        </div>
+    </div>
+</div>
+
+<div id="gameOverModal" class="modal">
+    <div class="modal-content">
+        <h2>GAME OVER</h2>
+        <p>Final Score: <span id="finalScore" style="font-weight:bold; color: #c41e3a;">0</span></p>
+        <button class="cta-button" onclick="resetGame()">Play Again</button>
+    </div>
+</div>
+
+<script th:src="@{/js/tetris.js}"></script>
+</body>
+</html>

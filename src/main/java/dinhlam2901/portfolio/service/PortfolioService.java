@@ -83,6 +83,15 @@ public class PortfolioService {
                         "https://github.com/XwolveX",
                         "/images/project4.jpg",
                         "/videos/flappy-bird-demo.mp4"
+                ),
+        new Project(
+                        "tetris-game", // ID
+                        "Tetris Web Port", // Title
+                        "A web-based recreation of the classic Tetris game, originally written in C for Raspberry Pi. Features full game logic, scoring, and keyboard controls.", // Description ngắn
+                        Arrays.asList("JavaScript", "HTML5 Canvas", "Algorithm"), // Tech stack
+                        "/game/tetris", // <--- QUAN TRỌNG: Đường dẫn trỏ đến GameController
+                        "/images/tetris-cover.jpg", // Ảnh đại diện (bạn nhớ thêm ảnh vào static/images)
+                        "https://firebasestorage.googleapis.com/v0/b/..."
                 )
         );
     }
