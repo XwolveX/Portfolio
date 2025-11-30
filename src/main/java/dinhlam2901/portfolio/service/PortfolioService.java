@@ -19,20 +19,31 @@ public class PortfolioService {
                         "On-site inspection app with Inspector/Supervisor roles, offline mode, auto-sync, OTP login, Maps, photo reports (ML Kit), chat, notifications, and PDF export.",
                         Arrays.asList("Kotlin", "Jetpack Compose", "ML Kit", "Firebase"),
                         "#",
-                        "For Inspector\n" +
+                        "Project Scope & Collaboration\n" +
+                                "    In this demo (0:00 - 3:20): The Supervisor role module was developed by my teammate.\n" +
+                                "    From (3:20 - End): The Inspector role module was developed and demonstrated by me.\n" +
+                                "    We collaborated closely on system analysis, requirement evaluation, and development planning.\n" +
                                 "\n" +
+                                "Why Our Team Made This App\n" +
+                                "    At Phuong Hai company, traditional workflows relied on manual note-taking and fragmented communication, causing delays and risks.\n" +
+                                "    We built this app to centralize all inspection data into a single, reliable platform.\n" +
+                                "    It reduces paperwork, improves accuracy, and minimizes human errors.\n" +
+                                "    Enables supervisors to monitor tasks, assign jobs, and review reports instantly.\n" +
+                                "    Strengthens collaboration via real-time messaging and notifications.\n" +
+                                "    Goal: Streamline the inspection process and help the company make faster, better-informed decisions.\n" +
+                                "\n" +
+                                "For Inspector\n" +
                                 "    Login with phone number + OTP (Firebase Phone Auth).\n" +
                                 "    Dashboard: view assigned tasks, filter by branch/priority.\n" +
-                                "    Create Report: title, description, inspection type (Electrical, Fire Safety, Structural, Food Hygiene, Environmental, Machinery), score, location (lat/lng + address), photos/videos.\n" +
+                                "    Create Report: title, description, inspection type, score, location (lat/lng), photos/videos.\n" +
                                 "    ML Kit Image Labeling: auto-suggests labels from attached images.\n" +
-                                "    Offline support: reports/tasks stored in Room → auto-synced to Firestore/Storage when online.\n" +
-                                "    Report history: view past reports with status (PENDING/APPROVED/REJECTED) and supervisor notes.\n" +
+                                "    Offline support: reports stored in Room → auto-synced to Firestore when online.\n" +
+                                "    Report history: view past reports with status and supervisor notes.\n" +
                                 "    1–1 Chat with Supervisor, plus notifications for updates.\n" +
                                 "\n" +
                                 "For Supervisor\n" +
-                                "\n" +
                                 "    Dashboard + Google Maps view of report locations.\n" +
-                                "    Review reports: update status ASSIGN / IN_PROGRESS / COMPLETED / CANCELLED / OVERDUE (Task) and PASSED/FAILED/NEEDS_ATTENTION (Report).\n" +
+                                "    Review reports: update status (ASSIGN, COMPLETED, OVERDUE) and result (PASSED/FAILED).\n" +
                                 "    Manage notifications and chat with Inspectors.\n" +
                                 "    Filter by Branch, Priority, or time.\n",
                         "https://firebasestorage.googleapis.com/v0/b/portfolio-bfbd9.firebasestorage.app/o/videos%2FFieldInspectionDemo.mp4?alt=media&token=f824758c-3752-49f2-bfcc-6f70f356ebda"
