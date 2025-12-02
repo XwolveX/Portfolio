@@ -10,4 +10,9 @@ public class GameController {
     public String tetrisPage() {
         return "game";
     }
+
+    @GetMapping("/game/flappybird")
+    public String flappyBirdPage() {
+        return "flappybird";
+    }
 }

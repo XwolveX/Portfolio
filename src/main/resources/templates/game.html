@@ -15,14 +15,14 @@
 <a href="/" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
 
 <h1 style="color: white; margin-bottom: 0.5rem; margin-top: 1rem;">TETRIS PROJECT</h1>
-<p style="color: #666; font-size: 0.9rem;">Ported from C (Raspberry Pi) to JavaScript</p>
+<p style="color: #aaa; font-size: 0.9rem;">Ported from C (Raspberry Pi) to JavaScript • Enhanced with Sound Effects</p>
 
 <div class="game-wrapper">
     <canvas id="tetris" width="240" height="400"></canvas>
 
     <div class="sidebar">
         <div class="stat-box">
-            <div class="stat-label">Next</div>
+            <div class="stat-label">Next Block</div>
             <canvas id="nextBlock" width="80" height="80"></canvas>
         </div>
 
@@ -39,12 +39,15 @@
         <button class="cta-button game-btn" onclick="resetGame()">
             <i class="fas fa-redo"></i> New Game
         </button>
-        <button class="cta-button game-btn" onclick="togglePause()" style="background-color: #333;">
-            <i class="fas fa-pause"></i> Pause
+        <button class="cta-button game-btn" onclick="togglePause()">
+            <i class="fas fa-pause"></i> <span id="pauseText">Pause</span>
+        </button>
+        <button class="cta-button game-btn" id="soundBtn" onclick="toggleSound()">
+            <i class="fas fa-volume-up"></i> <span id="soundText">Sound: ON</span>
         </button>
 
         <div class="controls-hint">
-            <strong>Controls:</strong><br>
+            <strong><i class="fas fa-gamepad"></i> Controls:</strong>
             <i class="fas fa-arrow-left"></i> Move Left<br>
             <i class="fas fa-arrow-right"></i> Move Right<br>
             <i class="fas fa-arrow-up"></i> Rotate<br>
@@ -55,9 +58,11 @@
 
 <div id="gameOverModal" class="modal">
     <div class="modal-content">
-        <h2>GAME OVER</h2>
-        <p>Final Score: <span id="finalScore" style="font-weight:bold; color: #c41e3a;">0</span></p>
-        <button class="cta-button" onclick="resetGame()">Play Again</button>
+        <h2><i class="fas fa-skull-crossbones"></i> GAME OVER</h2>
+        <p>Final Score: <span id="finalScore">0</span></p>
+        <button class="cta-button" onclick="resetGame()">
+            <i class="fas fa-redo"></i> Play Again
+        </button>
     </div>
 </div>
 

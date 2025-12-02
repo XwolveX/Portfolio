@@ -18,7 +18,7 @@ public class PortfolioService {
                         "FieldInspection App",
                         "On-site inspection app with Inspector/Supervisor roles, offline mode, auto-sync, OTP login, Maps, photo reports (ML Kit), chat, notifications, and PDF export.",
                         Arrays.asList("Kotlin", "Jetpack Compose", "ML Kit", "Firebase"),
-                        "#",
+                        "https://github.com/XwolveX",
                         "Project Scope & Collaboration\n" +
                                 "    In this demo (0:00 - 3:20): The Supervisor role module was developed by my teammate.\n" +
                                 "    From (3:20 - End): The Inspector role module was developed and demonstrated by me.\n" +
@@ -49,22 +49,43 @@ public class PortfolioService {
                         "https://firebasestorage.googleapis.com/v0/b/portfolio-bfbd9.firebasestorage.app/o/videos%2FFieldInspectionDemo.mp4?alt=media&token=f824758c-3752-49f2-bfcc-6f70f356ebda"
                 ),
                 new Project(
-                        "Petpal-App",
-                        "Petpal App",
-                        "On-site inspection app with Inspector/Supervisor roles, offline mode, auto-sync, OTP login, Maps, photo reports (ML Kit), chat, notifications, and PDF export.",
-                        Arrays.asList("Kotlin", "Jetpack Compose", "Firebase"),
-                        "#",
-                        "/static/images/profile1.png",
+                        "petpal-app", // ID
+                        "PetPal: Pet Community Platform", // Title
+                        "A modern Android application connecting pet lovers for adoption and lost-and-found support. Built with Kotlin, Jetpack Compose, and Clean Architecture.", // Short Description
+                        Arrays.asList("Kotlin", "Jetpack Compose", "Firebase", "Google Maps API", "Hilt/DI", "Clean Architecture"), // Tech stack
+                        "https://github.com/XwolveX/PetPal", // Link GitHub (tôi lấy từ tên thư mục bạn upload)
+                        "Project Vision\n" +
+                                "   Pet ownership comes with challenges, especially when a pet goes missing or when looking to adopt. PetPal was created to bridge this gap.\n" +
+                                "   It serves as a centralized mobile platform that connects pet owners, shelters, and animal lovers to facilitate adoption and reunite lost pets.\n\n" +
+                                "Key Features\n" +
+                                "   • Lost & Found Reporting: Users can report lost or sighted pets by pinning their exact location on an interactive Map (Google Maps integration).\n" +
+                                "   • Real-time Chat: Integrated messaging system allowing adopters and owners to communicate instantly regarding pet status.\n" +
+                                "   • Smart Filtering: Advanced search filters to find pets by breed, age, or distance.\n" +
+                                "   • Secure Auth: Implemented OTP-based authentication via phone number for verified user identities.\n\n" +
+                                "Technical Architecture\n" +
+                                "   • Clean Architecture: The app is strictly structured into Domain, Data, and Presentation layers, ensuring scalability and maintainability.\n" +
+                                "   • Modern UI: 100% UI built with Jetpack Compose, utilizing declarative patterns for a responsive and smooth user experience.\n" +
+                                "   • Serverless Backend: Powered by Firebase ecosystem (Firestore for NoSQL data, Authentication for security, and Cloud Messaging for push notifications).\n" +
+                                "   • Dependency Injection: Utilized Hilt for efficient dependency management across the app modules.",
                         "https://firebasestorage.googleapis.com/v0/b/portfolio-bfbd9.firebasestorage.app/o/videos%2FPetPalAppDemo.mp4?alt=media&token=5e59a5fc-eb0f-4b60-a5e9-bc13f81f9dc5"
                 ),
                 new Project(
-                        "owl-remote",
-                        "OwlRemote",
-                        "Desktop application that allows users to remotely control a PC by sending keyboard and mouse signals.",
-                        Arrays.asList("Java", "Swing", "AWT", "WebSocket"),
-                        "https://github.com/XwolveX",
-                        "/images/project2.jpg",
-                        "/videos/owl-remote-demo.mp4"
+                        "owl-remote", // ID
+                        "OwlRemote: Remote Desktop", // Title
+                        "A cross-platform remote desktop application enabling screen sharing and remote control over the internet. Features P2P connectivity via ZeroTier integration.", // Short Description
+                        Arrays.asList("Java", "Swing/AWT", "Socket Programming", "ZeroTier SDK", "Multi-threading"), // Tech stack
+                        "https://github.com/XwolveX/OwlRemote", // Link GitHub
+
+                        // Long Description (Format kỹ thuật & kể chuyện)
+                        "Project Concept\n" +
+                                "   Built a lightweight remote desktop solution (similar to TeamViewer) to control computers remotely without relying on third-party cloud servers for data relay.\n" +
+                                "   The application allows real-time screen viewing and full mouse/keyboard control with low latency.\n\n" +
+                                "Key Technical Features\n" +
+                                "   • Smart Networking (ZeroTier): Integrated ZeroTier SDK to establish Peer-to-Peer (P2P) Virtual LAN connections. This allows devices to connect seamlessly across different networks (NAT/Firewalls) without requiring manual Port Forwarding.\n" +
+                                "   • Screen Capture Engine: Developed a high-performance screen scraper using Java AWT Robot, optimized to capture and compress screenshots for network transmission.\n" +
+                                "   • Remote Input Injection: Implemented a command protocol to serialize mouse coordinates and keystrokes from the Client, transmitting them to the Server to be replayed instantly on the host machine.\n" +
+                                "   • Client-Server Architecture: Designed a multi-threaded server capable of handling image streaming (Downlink) and control commands (Uplink) simultaneously on separate sockets.",
+                        "#" // Video URL
                 ),
                 new Project(
                         "tma-tourist",
@@ -76,22 +97,45 @@ public class PortfolioService {
                         "/videos/tma-tourist-demo.mp4"
                 ),
                 new Project(
-                        "flappy-bird",
-                        "Flappy Bird Game",
-                        "Developed a Flappy Bird–style game inspired by the original version, fully runnable on Raspberry Pi 4.",
-                        Arrays.asList("C", "Raspberry Pi", "Game Development"),
-                        "https://github.com/XwolveX",
-                        "/images/project4.jpg",
-                        "/videos/flappy-bird-demo.mp4"
+                        "flappy-bird", // ID
+                        "Flappy Bird Game", // Title
+                        "A faithful web adaptation of a Flappy Bird clone originally written in C for Bare-Metal Raspberry Pi 4. Rewritten in JavaScript to make the embedded experience accessible to everyone.", // Short Description
+                        Arrays.asList("JavaScript", "HTML5 Canvas", "Physics Port", "C/Embedded (Origin)"), // Tech stack
+                        "/game/flappybird", // Link (Trỏ về GameController)
+
+                        // Long Description (Format kể chuyện)
+                        "Project Origin: The Embedded Version\n" +
+                                "   This project began as a low-level challenge: programming a Flappy Bird clone directly on Raspberry Pi 4 hardware without an Operating System (Bare-Metal).\n" +
+                                "   It involved managing memory manually, interacting with GPIOs, and writing directly to the Framebuffer for graphics.\n\n" +
+                                "Why I Built This Web Version\n" +
+                                "   Showcasing a bare-metal project requires physical hardware, which isn't easy to share online.\n" +
+                                "   I created this web version to let anyone experience the game mechanics immediately without needing a Raspberry Pi.\n" +
+                                "   It serves as a bridge, demonstrating how low-level logic can be translated into modern web technologies.\n\n" +
+                                "Technical Implementation\n" +
+                                "   Physics Port: Translated the gravity and collision logic 1:1 from C structs to JavaScript objects.\n" +
+                                "   Asset-less Rendering: Instead of loading images, the game draws graphics (Bird, Mario-style pipes) programmatically using HTML5 Canvas, mimicking the original hex-bitmap rendering.\n" +
+                                "   Performance: Optimized the game loop to maintain a steady 60 FPS, matching the hardware refresh rate.",
+                        "#" // Video URL (Để # vì sẽ chơi trực tiếp)
                 ),
-        new Project(
+                new Project(
                         "tetris-game", // ID
-                        "Tetris Web Port", // Title
-                        "A web-based recreation of the classic Tetris game, originally written in C for Raspberry Pi. Features full game logic, scoring, and keyboard controls.", // Description ngắn
-                        Arrays.asList("JavaScript", "HTML5 Canvas", "Algorithm"), // Tech stack
-                        "/game/tetris", // <--- QUAN TRỌNG: Đường dẫn trỏ đến GameController
-                        "/images/tetris-cover.jpg", // Ảnh đại diện (bạn nhớ thêm ảnh vào static/images)
-                        "https://firebasestorage.googleapis.com/v0/b/..."
+                        "Tetris: Embedded to Web", // Title
+                        "A web-based adaptation of my embedded C Tetris game originally built for Raspberry Pi 4. Rewritten in JavaScript to allow anyone to play directly in the browser.", // Short Description
+                        Arrays.asList("JavaScript", "HTML5 Canvas", "Algorithm", "C/Embedded (Origin)"), // Tech stack
+                        "/game/tetris", // Link (Trỏ về GameController)
+                        "Project Origin: The Embedded Version\n" +
+                                "   This project started as a low-level challenge: building a fully functional Tetris game in C for the Raspberry Pi 4.\n" +
+                                "   It originally ran directly on hardware, handling memory management and interacting with GPIO pins for controls and an LCD display.\n\n" +
+                                "Why I Built This Web Version\n" +
+                                "   While the hardware version was a great engineering milestone, it was limited to the physical device and hard to showcase remotely.\n" +
+                                "   I wanted to create a version that is accessible to everyone, allowing friends and recruiters to experience the game logic instantly.\n" +
+                                "   This web port bridges the gap between low-level logic and modern frontend accessibility.\n\n" +
+                                "Technical Implementation\n" +
+                                "   Ported the core game algorithms (collision detection, matrix rotation) from C to JavaScript.\n" +
+                                "   Replaced hardware interrupts with browser DOM Event Listeners for keyboard control.\n" +
+                                "   Rendered graphics using HTML5 Canvas instead of writing to a display buffer.\n" +
+                                "   Optimized the game loop to run smoothly at 60FPS in the browser.",
+                        "#"
                 )
         );
     }

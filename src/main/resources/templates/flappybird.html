@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Flappy Bird | Nguyen Dinh Lam</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/flappybird.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<a href="/" class="back-btn">
+    <i class="fas fa-arrow-left"></i> Back to Portfolio
+</a>
+
+<h1>FLAPPY BIRD PORT</h1>
+<p>Embedded C Physics ported to HTML5 Canvas • Pixel Art Graphics</p>
+
+<div class="game-wrapper">
+    <canvas id="birdCanvas" width="480" height="640"></canvas>
+
+    <div class="sidebar">
+        <div class="stat-box">
+            <div class="stat-label">Score</div>
+            <div class="stat-value" id="score">0</div>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-label">Best</div>
+            <div class="stat-value" id="bestScore">0</div>
+        </div>
+
+        <button class="game-btn" onclick="resetGame()">
+            <i class="fas fa-play"></i> Start / Restart
+        </button>
+
+        <div class="controls-hint">
+            <p><strong><i class="fas fa-gamepad"></i> Controls:</strong></p>
+            <p>Press <span>SPACE</span> or <span>CLICK</span> to Flap</p>
+        </div>
+
+        <div class="debug-info">
+            <small><i class="fas fa-code"></i> Engine: JS Canvas</small><br>
+            <small><i class="fas fa-cogs"></i> Physics: Delta-Time</small>
+        </div>
+    </div>
+</div>
+
+<div id="gameOverModal" class="modal">
+    <div class="modal-content">
+        <h2>
+            <i class="fas fa-skull-crossbones"></i> GAME OVER
+        </h2>
+        <p>Final Score: <span id="finalScore">0</span></p>
+        <button class="game-btn" onclick="resetGame()">
+            <i class="fas fa-redo"></i> Try Again
+        </button>
+    </div>
+</div>
+
+<script th:src="@{/js/flappybird.js}"></script>
+</body>
+</html>
