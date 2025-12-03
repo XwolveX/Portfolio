@@ -18,7 +18,7 @@ public class PortfolioService {
                         "FieldInspection App",
                         "On-site inspection app with Inspector/Supervisor roles, offline mode, auto-sync, OTP login, Maps, photo reports (ML Kit), chat, notifications, and PDF export.",
                         Arrays.asList("Kotlin", "Jetpack Compose", "ML Kit", "Firebase"),
-                        "https://github.com/XwolveX",
+                        "https://github.com/RMIT-Vietnam-Teaching/assignment-2-group-donut",
                         "Project Scope & Collaboration\n" +
                                 "    In this demo (0:00 - 3:20): The Supervisor role module was developed by my teammate.\n" +
                                 "    From (3:20 - End): The Inspector role module was developed and demonstrated by me.\n" +
