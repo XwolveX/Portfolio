@@ -650,7 +650,7 @@ section {
     color: white;
 }
 
-/* Responsive */
+/* Responsive - Base */
 @media (max-width: 1200px) {
     .hero {
         grid-template-columns: 1fr;
@@ -668,36 +668,6 @@ section {
     }
 }
 
-@media (max-width: 768px) {
-    .navbar {
-        padding: 1rem 2rem;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .name {
-        font-size: 2.5rem;
-    }
-
-    .tagline {
-        font-size: 1.8rem;
-    }
-
-    section {
-        padding: 3rem 2rem;
-    }
-
-    .video-container {
-        padding: 1rem;
-    }
-
-    .video-container video {
-        height: 300px;
-        max-height: 300px;
-    }
-}
 /* --- Games Gallery / 3D Carousel Styles --- */
 .partners-section {
     text-align: center;
@@ -835,4 +805,187 @@ section {
 @keyframes fadeInTitle {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE OPTIMIZATION
+   (Chỉ áp dụng cho màn hình dọc < 768px)
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* 1. Tinh chỉnh Layout chung */
+    body {
+        overflow-x: hidden; /* Ngăn trượt ngang do phần tử tràn */
+    }
+
+    section {
+        padding: 3rem 1.5rem; /* Giảm padding các section */
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    /* 2. Navbar (Menu) */
+    .navbar {
+        padding: 1rem;
+        background-color: rgba(10, 10, 10, 0.98); /* Tăng độ đậm nền để dễ đọc hơn */
+    }
+
+    .nav-links {
+        display: none; /* Ẩn menu link trên mobile (bạn có thể thêm nút hamburger sau) */
+    }
+
+    /* 3. Hero Section (Phần giới thiệu) */
+    .hero {
+        padding-top: 6rem; /* Tạo khoảng trống tránh đè navbar */
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .hero-center {
+        order: 1; /* Đưa ảnh lên đầu */
+        margin-bottom: 1rem;
+    }
+
+    .hero-left {
+        order: 2; /* Tên và chào hỏi xuống thứ 2 */
+        padding-right: 0;
+    }
+
+    .hero-right {
+        order: 3; /* Giới thiệu chi tiết xuống cuối */
+        padding-left: 0;
+    }
+
+    .profile-circle {
+        width: 260px; /* Giảm kích thước vòng tròn ảnh (Gốc 450px) */
+        height: 260px;
+        margin: 0 auto;
+        box-shadow: 0 10px 30px rgba(196, 30, 58, 0.3);
+    }
+
+    .name {
+        font-size: 2.2rem; /* Giảm cỡ chữ tên */
+    }
+
+    .tagline {
+        font-size: 1.8rem;
+    }
+
+    .description {
+        font-size: 1rem;
+        text-align: justify; /* Căn đều văn bản cho dễ đọc trên đt */
+    }
+
+    .social-icons {
+        justify-content: center; /* Căn giữa icon MXH */
+    }
+
+    /* 4. Project Highlights (Danh sách dự án) */
+    .projects-grid {
+        grid-template-columns: 1fr; /* Chuyển về 1 cột duy nhất */
+        gap: 1.5rem;
+    }
+
+    /* 5. Video Demo Section (Phần phức tạp nhất) */
+    .video-demo-section {
+        margin-top: 2rem;
+    }
+
+    .demo-content-wrapper {
+        display: flex;
+        flex-direction: column; /* Xếp chồng Video lên trên text */
+        gap: 1.5rem;
+    }
+
+    .video-container {
+        position: relative; /* Bỏ sticky để không bị lỗi cuộn trên mobile */
+        top: 0;
+        padding: 0.5rem;
+        width: 100%;
+    }
+
+    .video-container video {
+        height: auto; /* Để chiều cao tự động theo tỷ lệ */
+        max-height: 250px; /* Giới hạn chiều cao */
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .project-info-panel {
+        padding: 1.5rem;
+        max-height: none; /* Bỏ thanh cuộn trong, để nội dung dài ra tự nhiên */
+        overflow: visible;
+    }
+
+    .project-title-main {
+        font-size: 1.5rem;
+    }
+
+    /* 6. Game Carousel (Hiệu ứng 3D) */
+    .carousel-3d-container {
+        height: 280px; /* Giảm chiều cao container */
+    }
+
+    .carousel-3d-item {
+        width: 220px; /* Giảm kích thước card game (Gốc 300px) */
+        height: 150px; /* (Gốc 200px) */
+    }
+
+    /* Điều chỉnh nút điều hướng carousel */
+    .carousel-3d-nav {
+        padding: 5px 12px;
+        font-size: 1.5rem;
+    }
+    .carousel-3d-nav.prev { left: 5px; }
+    .carousel-3d-nav.next { right: 5px; }
+
+    #activeGameTitle {
+        font-size: 1.5rem;
+    }
+
+    /* 7. Skills Section */
+    .skills-container {
+        grid-template-columns: 1fr; /* 1 cột */
+    }
+
+    .skill-item {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    /* 8. Experience Timeline */
+    .experience-timeline {
+        padding-left: 1.5rem; /* Giảm lề trái */
+    }
+
+    .experience-item {
+        padding: 1.5rem;
+    }
+
+    .experience-item::before {
+        left: -1.95rem; /* Căn chỉnh lại chấm tròn timeline */
+        width: 12px;
+        height: 12px;
+    }
+
+    /* 9. Contact Section */
+    .contact-container {
+        padding: 1.5rem;
+    }
+
+    .contact-info {
+        flex-direction: column; /* Xếp dọc thông tin liên hệ */
+        gap: 1.5rem;
+    }
+
+    .contact-item {
+        justify-content: center;
+        font-size: 1rem;
+    }
 }

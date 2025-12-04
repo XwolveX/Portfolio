@@ -119,7 +119,6 @@ public class PortfolioService {
                         "A faithful web adaptation of a Flappy Bird clone originally written in C for Bare-Metal Raspberry Pi 4. Rewritten in JavaScript to make the embedded experience accessible to everyone.", // Short Description
                         Arrays.asList("JavaScript", "HTML5 Canvas", "Physics Port", "C/Embedded (Origin)"), // Tech stack
                         "https://github.com/billybean93/Bare-Metal-Programming",
-                        // Long Description (Format kể chuyện)
                         "Project Origin: The Embedded Version\n" +
                                 "   This project began as a low-level challenge: programming a Flappy Bird clone directly on Raspberry Pi 4 hardware without an Operating System (Bare-Metal).\n" +
                                 "   It involved managing memory manually, interacting with GPIOs, and writing directly to the Framebuffer for graphics.\n\n" +
