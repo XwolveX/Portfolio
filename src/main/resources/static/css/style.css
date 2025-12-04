@@ -698,3 +698,141 @@ section {
         max-height: 300px;
     }
 }
+/* --- Games Gallery / 3D Carousel Styles --- */
+.partners-section {
+    text-align: center;
+    perspective: 1000px;
+}
+
+.ps5-bg-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, rgba(196, 30, 58, 0.15) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.carousel-3d-container {
+    width: 100%;
+    max-width: 1000px;
+    height: 350px; /* Tăng chiều cao */
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-3d-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.carousel-3d-item {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background-color: rgba(30, 30, 30, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Hiệu ứng mượt như PS5 */
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-3d-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+/* Hiệu ứng active card */
+.carousel-3d-item.active-card {
+    border-color: var(--primary-red);
+    box-shadow: 0 0 40px rgba(196, 30, 58, 0.6);
+    z-index: 100;
+}
+
+.game-card-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.carousel-3d-item:hover .game-card-overlay {
+    opacity: 1;
+}
+
+.game-card-overlay span {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 30px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
+/* Navigation Buttons */
+.carousel-3d-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 200;
+    transition: all 0.3s;
+}
+
+.carousel-3d-nav:hover {
+    background: var(--primary-red);
+    box-shadow: 0 0 20px var(--primary-red);
+}
+
+.carousel-3d-nav.prev { left: 20px; }
+.carousel-3d-nav.next { right: 20px; }
+
+/* Game Title Display */
+.game-title-display {
+    text-align: center;
+    margin-top: 20px;
+    height: 50px;
+}
+
+#activeGameTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: transparent;
+    background: linear-gradient(90deg, #fff, var(--gray-text));
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: fadeInTitle 0.5s ease;
+}
+
+@keyframes fadeInTitle {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

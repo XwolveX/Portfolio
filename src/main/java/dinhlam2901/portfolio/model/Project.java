@@ -17,4 +17,6 @@ public class Project {
     private String link;
     private String longDescription;
     private String videoUrl;
+    private String type; // values: "app", "game", "web"
+    private String playOrWebLink;
 }

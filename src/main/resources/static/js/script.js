@@ -187,4 +187,105 @@ window.addEventListener('DOMContentLoaded', function() {
             descContainer.innerHTML = formatLongDescription(rawText);
         }
     }
+// --- LOGIC GAME GALLERY (CAROUSEL 3D) ---
+    const carouselWrapper = document.getElementById('carousel3dWrapper');
+    if (carouselWrapper) {
+        const items = Array.from(carouselWrapper.querySelectorAll('.carousel-3d-item'));
+        const totalItems = items.length;
+        let currentIndex = 0;
+        const titleElement = document.getElementById('activeGameTitle');
+
+        // Âm thanh chuyển đổi (Sử dụng tạm âm thanh từ Tetris/FlappyBird bạn đã có)
+        // Bạn có thể dùng '/sounds/sfx_wing.wav' hoặc '/sounds/sfx_point.wav' làm tiếng "bíp" khi chuyển
+        const switchSound = new Audio('/sounds/sfx_point.wav');
+        switchSound.volume = 0.3;
+
+        function updateCardPositions() {
+            const itemWidth = 300; // Khớp với CSS
+            const gap = 150; // Khoảng cách giữa các card
+
+            items.forEach((item, index) => {
+                let offset = index - currentIndex;
+
+                // Logic vòng lặp (Circular)
+                if (offset > totalItems / 2) offset -= totalItems;
+                if (offset < -totalItems / 2) offset += totalItems;
+
+                const absOffset = Math.abs(offset);
+
+                // Tính toán transform
+                let translateX = offset * (itemWidth - 100);
+                let scale = 1 - (absOffset * 0.2);
+                let opacity = 1 - (absOffset * 0.3);
+                let zIndex = totalItems - absOffset;
+                let rotateY = offset * -25; // Xoay nhẹ để tạo cảm giác 3D
+
+                // Chỉ hiển thị 3 item: giữa, trái, phải. Ẩn các cái xa hơn
+                if (absOffset > 2) opacity = 0;
+
+                item.style.transform = `translate(-50%, -50%) translateX(${translateX}px) scale(${scale}) perspective(1000px) rotateY(${rotateY}deg)`;
+                item.style.zIndex = zIndex;
+                item.style.opacity = opacity;
+
+                // Cập nhật class active
+                if (offset === 0) {
+                    item.classList.add('active-card');
+                    item.style.pointerEvents = 'auto'; // Cho phép click
+                    // Cập nhật tiêu đề
+                    if(titleElement) {
+                        titleElement.style.opacity = '0';
+                        setTimeout(() => {
+                            titleElement.textContent = item.getAttribute('data-title');
+                            titleElement.style.opacity = '1';
+                        }, 200);
+                    }
+                } else {
+                    item.classList.remove('active-card');
+                    item.style.pointerEvents = 'none'; // Không cho click item phía sau
+                }
+            });
+        }
+
+        function playSwitchSound() {
+            if(switchSound) {
+                switchSound.currentTime = 0;
+                switchSound.play().catch(e => console.log("Audio play failed interaction needed"));
+            }
+        }
+
+        const prevButton = document.getElementById('carousel3dPrev');
+        const nextButton = document.getElementById('carousel3dNext');
+
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                playSwitchSound();
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                updateCardPositions();
+            });
+        }
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                playSwitchSound();
+                currentIndex = (currentIndex + 1) % totalItems;
+                updateCardPositions();
+            });
+        }
+
+        // Hỗ trợ phím mũi tên
+        document.addEventListener('keydown', (e) => {
+            // Chỉ bắt sự kiện nếu section game đang hiển thị trong viewport (đơn giản hóa)
+            if (e.key === 'ArrowLeft') {
+                playSwitchSound();
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                updateCardPositions();
+            } else if (e.key === 'ArrowRight') {
+                playSwitchSound();
+                currentIndex = (currentIndex + 1) % totalItems;
+                updateCardPositions();
+            }
+        });
+
+        // Init
+        updateCardPositions();
+    }
 });

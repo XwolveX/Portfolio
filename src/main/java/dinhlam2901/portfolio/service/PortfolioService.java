@@ -46,7 +46,9 @@ public class PortfolioService {
                                 "    Review reports: update status (ASSIGN, COMPLETED, OVERDUE) and result (PASSED/FAILED).\n" +
                                 "    Manage notifications and chat with Inspectors.\n" +
                                 "    Filter by Branch, Priority, or time.\n",
-                        "https://firebasestorage.googleapis.com/v0/b/portfolio-bfbd9.firebasestorage.app/o/videos%2FFieldInspectionDemo.mp4?alt=media&token=f824758c-3752-49f2-bfcc-6f70f356ebda"
+                        "https://firebasestorage.googleapis.com/v0/b/portfolio-bfbd9.firebasestorage.app/o/videos%2FFieldInspectionDemo.mp4?alt=media&token=f824758c-3752-49f2-bfcc-6f70f356ebda",
+                        "app",
+                        null
                 ),
                 new Project(
                         "petpal-app", // ID
@@ -67,7 +69,10 @@ public class PortfolioService {
                                 "   • Modern UI: 100% UI built with Jetpack Compose, utilizing declarative patterns for a responsive and smooth user experience.\n" +
                                 "   • Serverless Backend: Powered by Firebase ecosystem (Firestore for NoSQL data, Authentication for security, and Cloud Messaging for push notifications).\n" +
                                 "   • Dependency Injection: Utilized Hilt for efficient dependency management across the app modules.",
-                        "https://firebasestorage.googleapis.com/v0/b/portfolio-bfbd9.firebasestorage.app/o/videos%2FPetPalAppDemo.mp4?alt=media&token=5e59a5fc-eb0f-4b60-a5e9-bc13f81f9dc5"
+                        "https://firebasestorage.googleapis.com/v0/b/portfolio-bfbd9.firebasestorage.app/o/videos%2FPetPalAppDemo.mp4?alt=media&token=5e59a5fc-eb0f-4b60-a5e9-bc13f81f9dc5",
+                        "app",
+                        null
+
                 ),
                 new Project(
                         "owl-remote", // ID
@@ -85,7 +90,9 @@ public class PortfolioService {
                                 "   • Screen Capture Engine: Developed a high-performance screen scraper using Java AWT Robot, optimized to capture and compress screenshots for network transmission.\n" +
                                 "   • Remote Input Injection: Implemented a command protocol to serialize mouse coordinates and keystrokes from the Client, transmitting them to the Server to be replayed instantly on the host machine.\n" +
                                 "   • Client-Server Architecture: Designed a multi-threaded server capable of handling image streaming (Downlink) and control commands (Uplink) simultaneously on separate sockets.",
-                        "#" // Video URL
+                        "#", // Video URL
+                        "app",
+                        null
                 ),
                 new Project(
                         "tma-tourist",
@@ -93,16 +100,25 @@ public class PortfolioService {
                         "Designed and built a basic corporate website for TMA Tourist with responsive design and smooth animations.",
                         Arrays.asList("HTML5", "CSS3", "JavaScript"),
                         "http://tmatourist.com",
-                        "/images/project3.jpg",
-                        "/videos/tma-tourist-demo.mp4"
+                        "Technical Architecture\n" +
+                                "   Modern Spring Boot Framework: Built on Spring Boot with MVC architecture, ensuring scalability, maintainability, and professional-grade backend structure.\n" +
+                                "   Thymeleaf Template Engine: Server-side rendering for SEO optimization and fast initial page loads, critical for travel industry online visibility.\n" +
+                                "   Responsive Design System: Mobile-first approach with breakpoints optimized for all device sizes, from smartphones to large desktop displays.\n" +
+                                "   Performance Optimization: Lazy loading for images and videos, WebM format for reduced bandwidth, and optimized asset delivery ensuring fast load times even in areas with limited connectivity.\n" +
+                                "   SEO & Structured Data: Comprehensive meta tags, Open Graph protocol implementation, and Schema.org markup for enhanced search engine visibility and social media sharing.\n" +
+                                "   Interactive JavaScript Features: Custom-built components including hamburger navigation, video popup modals, parallax effects, and smooth scrolling animations - all developed without heavy framework dependencies for optimal performance.\n\n" +
+                                "Design Philosophy\n" +
+                                "   The website embodies TMA Tourist's brand identity - \"Professional, Creative, and Flexible\" - through its visual language. The design balances elegance with functionality, using a sophisticated color palette (deep blacks, cream accents, and signature gold tones) that reflects both the professionalism of corporate services and the warmth of personalized travel experiences. Every interaction is crafted to guide users naturally through their journey of discovery, from initial curiosity to booking inquiry.",
+                        "https://firebasestorage.googleapis.com/v0/b/portfolio-bfbd9.firebasestorage.app/o/videos%2Ftmademo.mp4?alt=media&token=f19cfd00-ed24-4744-a99a-af299a636fd5",
+                        "web",
+                        "http://tmatourist.com"
                 ),
                 new Project(
                         "flappy-bird", // ID
                         "Flappy Bird Game", // Title
                         "A faithful web adaptation of a Flappy Bird clone originally written in C for Bare-Metal Raspberry Pi 4. Rewritten in JavaScript to make the embedded experience accessible to everyone.", // Short Description
                         Arrays.asList("JavaScript", "HTML5 Canvas", "Physics Port", "C/Embedded (Origin)"), // Tech stack
-                        "/game/flappybird", // Link (Trỏ về GameController)
-
+                        "https://github.com/billybean93/Bare-Metal-Programming",
                         // Long Description (Format kể chuyện)
                         "Project Origin: The Embedded Version\n" +
                                 "   This project began as a low-level challenge: programming a Flappy Bird clone directly on Raspberry Pi 4 hardware without an Operating System (Bare-Metal).\n" +
@@ -115,14 +131,16 @@ public class PortfolioService {
                                 "   Physics Port: Translated the gravity and collision logic 1:1 from C structs to JavaScript objects.\n" +
                                 "   Asset-less Rendering: Instead of loading images, the game draws graphics (Bird, Mario-style pipes) programmatically using HTML5 Canvas, mimicking the original hex-bitmap rendering.\n" +
                                 "   Performance: Optimized the game loop to maintain a steady 60 FPS, matching the hardware refresh rate.",
-                        "#" // Video URL (Để # vì sẽ chơi trực tiếp)
+                        "#",// Video URL (Để # vì sẽ chơi trực tiếp)
+                        "game",
+                        "/game/flappybird"
                 ),
                 new Project(
                         "tetris-game", // ID
                         "Tetris: Embedded to Web", // Title
                         "A web-based adaptation of my embedded C Tetris game originally built for Raspberry Pi 4. Rewritten in JavaScript to allow anyone to play directly in the browser.", // Short Description
                         Arrays.asList("JavaScript", "HTML5 Canvas", "Algorithm", "C/Embedded (Origin)"), // Tech stack
-                        "/game/tetris", // Link (Trỏ về GameController)
+                        "https://github.com/XwolveX/EEET2481_A3_TETRISGAME",
                         "Project Origin: The Embedded Version\n" +
                                 "   This project started as a low-level challenge: building a fully functional Tetris game in C for the Raspberry Pi 4.\n" +
                                 "   It originally ran directly on hardware, handling memory management and interacting with GPIO pins for controls and an LCD display.\n\n" +
@@ -135,7 +153,9 @@ public class PortfolioService {
                                 "   Replaced hardware interrupts with browser DOM Event Listeners for keyboard control.\n" +
                                 "   Rendered graphics using HTML5 Canvas instead of writing to a display buffer.\n" +
                                 "   Optimized the game loop to run smoothly at 60FPS in the browser.",
-                        "#"
+                        "#",
+                        "game",
+                        "/game/tetris"
                 )
         );
     }
