@@ -131,13 +131,13 @@ public class PortfolioService {
                                 "   Physics Port: Translated the gravity and collision logic 1:1 from C structs to JavaScript objects.\n" +
                                 "   Asset-less Rendering: Instead of loading images, the game draws graphics (Bird, Mario-style pipes) programmatically using HTML5 Canvas, mimicking the original hex-bitmap rendering.\n" +
                                 "   Performance: Optimized the game loop to maintain a steady 60 FPS, matching the hardware refresh rate.",
-                        "#",// Video URL (Để # vì sẽ chơi trực tiếp)
+                        "/images/flappybird.png",
                         "game",
                         "/game/flappybird"
                 ),
                 new Project(
                         "tetris-game", // ID
-                        "Tetris: Embedded to Web", // Title
+                        "Tetris Game", // Title
                         "A web-based adaptation of my embedded C Tetris game originally built for Raspberry Pi 4. Rewritten in JavaScript to allow anyone to play directly in the browser.", // Short Description
                         Arrays.asList("JavaScript", "HTML5 Canvas", "Algorithm", "C/Embedded (Origin)"), // Tech stack
                         "https://github.com/XwolveX/EEET2481_A3_TETRISGAME",
@@ -153,7 +153,7 @@ public class PortfolioService {
                                 "   Replaced hardware interrupts with browser DOM Event Listeners for keyboard control.\n" +
                                 "   Rendered graphics using HTML5 Canvas instead of writing to a display buffer.\n" +
                                 "   Optimized the game loop to run smoothly at 60FPS in the browser.",
-                        "#",
+                        "/images/tetris.png",
                         "game",
                         "/game/tetris"
                 )
