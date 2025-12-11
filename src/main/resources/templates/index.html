@@ -58,8 +58,148 @@
   </div>
 </section>
 
+<!-- What Can I Do Section -->
+<section id="what-can-i-do">
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">What Can I Do</h2>
+            <p class="section-subtitle">
+                From bare-metal programming to modern web apps, I build solutions across the full technology stack
+            </p>
+        </div>
+
+        <div class="capabilities-grid">
+            <!-- Mobile App Development -->
+            <div class="capability-card">
+                <div class="card-icon">📱</div>
+                <h3 class="card-title">Mobile App Development</h3>
+                <p class="card-description">
+                    Build modern Android applications with Kotlin and Jetpack Compose. Experience with Firebase integration,
+                    offline-first architecture, real-time chat, ML Kit, and Clean Architecture patterns.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Kotlin</span>
+                    <span class="tech-tag">Jetpack Compose</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">ML Kit</span>
+                    <span class="tech-tag">Clean Architecture</span>
+                </div>
+            </div>
+
+            <!-- Web Development -->
+            <div class="capability-card">
+                <div class="card-icon">🌐</div>
+                <h3 class="card-title">Full-Stack Web Development</h3>
+                <p class="card-description">
+                    Create responsive, SEO-optimized websites using Spring Boot and modern frontend technologies.
+                    From corporate websites to interactive web applications with smooth animations and performance optimization.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Spring Boot</span>
+                    <span class="tech-tag">Thymeleaf</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">HTML5/CSS3</span>
+                    <span class="tech-tag">Responsive Design</span>
+                </div>
+            </div>
+
+            <!-- Embedded Systems -->
+            <div class="capability-card">
+                <div class="card-icon">🔧</div>
+                <h3 class="card-title">Embedded Systems & IoT</h3>
+                <p class="card-description">
+                    Deep understanding of low-level programming and hardware interaction. Developed bare-metal applications
+                    on Raspberry Pi 4 and Nuvoton microcontrollers, working directly with ARM processors and peripherals.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">C/C++</span>
+                    <span class="tech-tag">Raspberry Pi</span>
+                    <span class="tech-tag">Bare-Metal</span>
+                    <span class="tech-tag">ARM Cortex</span>
+                    <span class="tech-tag">Hardware Control</span>
+                </div>
+            </div>
+
+            <!-- Desktop Applications -->
+            <div class="capability-card">
+                <div class="card-icon">💻</div>
+                <h3 class="card-title">Desktop Applications</h3>
+                <p class="card-description">
+                    Build cross-platform desktop solutions with Java Swing and modern UI frameworks.
+                    Experience in socket programming, P2P networking, and system-level interactions.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Swing/AWT</span>
+                    <span class="tech-tag">Socket Programming</span>
+                    <span class="tech-tag">Multi-threading</span>
+                    <span class="tech-tag">ZeroTier SDK</span>
+                </div>
+            </div>
+
+            <!-- Game Development -->
+            <div class="capability-card">
+                <div class="card-icon">🎮</div>
+                <h3 class="card-title">Game Development</h3>
+                <p class="card-description">
+                    Create games from scratch, both for embedded hardware and web platforms.
+                    Strong grasp of game physics, collision detection, and performance optimization for smooth 60 FPS gameplay.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">HTML5 Canvas</span>
+                    <span class="tech-tag">Game Physics</span>
+                    <span class="tech-tag">Algorithm Design</span>
+                    <span class="tech-tag">C (Embedded)</span>
+                </div>
+            </div>
+
+            <!-- AI-Powered Solutions -->
+            <div class="capability-card">
+                <div class="card-icon">🤖</div>
+                <h3 class="card-title">AI-Assisted Development</h3>
+                <p class="card-description">
+                    Leverage modern AI tools to accelerate development, optimize code, and solve complex technical challenges.
+                    Experience with ML Kit for image recognition and intelligent features in mobile apps.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">ChatGPT</span>
+                    <span class="tech-tag">Claude</span>
+                    <span class="tech-tag">Copilot</span>
+                    <span class="tech-tag">ML Kit</span>
+                    <span class="tech-tag">Gemini</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat-item">
+                <div class="stat-number" data-target="6">0</div>
+                <div class="stat-label">Major Projects</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="10">0</div>
+                <div class="stat-label">Technologies</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-label">Platforms</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label">% Passion</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <section id="projects" class="projects">
   <h2 class="section-title">Project Highlights</h2>
+    <p class="video-demo-subtitle">"Click on any project card to view details and demo, or hit 'Play' to experience the game in your browser."</p>
   <div class="projects-grid">
       <div th:each="project, iterStat : ${projects}"
            class="project-card"
@@ -105,7 +245,6 @@
   <div class="video-demo-section">
     <div class="video-demo-header">
       <h3 class="video-demo-title">Project Showcase</h3>
-      <p class="video-demo-subtitle">Click on any project card above to see its demo</p>
     </div>
 
     <div class="demo-content-wrapper">

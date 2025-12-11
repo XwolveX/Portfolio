@@ -16,7 +16,7 @@ public class PortfolioService {
                 new Project(
                         "field-inspection",
                         "FieldInspection App",
-                        "On-site inspection app with Inspector/Supervisor roles, offline mode, auto-sync, OTP login, Maps, photo reports (ML Kit), chat, notifications, and PDF export.",
+                        "A robust native Android application for field inspection management featuring an offline-first architecture, role-based access control, and automated background synchronization using WorkManager and Firebase.",
                         Arrays.asList("Kotlin", "Jetpack Compose", "ML Kit", "Firebase"),
                         "https://github.com/RMIT-Vietnam-Teaching/assignment-2-group-donut",
                         "Project Scope & Collaboration\n" +
@@ -115,21 +115,24 @@ public class PortfolioService {
                 ),
                 new Project(
                         "flappy-bird", // ID
-                        "Flappy Bird Game", // Title
+                        "Flappy Bird (Bare-Metal & Web Port)", // Title
                         "A faithful web adaptation of a Flappy Bird clone originally written in C for Bare-Metal Raspberry Pi 4. Rewritten in JavaScript to make the embedded experience accessible to everyone.", // Short Description
-                        Arrays.asList("JavaScript", "HTML5 Canvas", "Physics Port", "C/Embedded (Origin)"), // Tech stack
-                        "https://github.com/billybean93/Bare-Metal-Programming",
-                        "Project Origin: The Embedded Version\n" +
-                                "   This project began as a low-level challenge: programming a Flappy Bird clone directly on Raspberry Pi 4 hardware without an Operating System (Bare-Metal).\n" +
-                                "   It involved managing memory manually, interacting with GPIOs, and writing directly to the Framebuffer for graphics.\n\n" +
-                                "Why I Built This Web Version\n" +
-                                "   Showcasing a bare-metal project requires physical hardware, which isn't easy to share online.\n" +
-                                "   I created this web version to let anyone experience the game mechanics immediately without needing a Raspberry Pi.\n" +
-                                "   It serves as a bridge, demonstrating how low-level logic can be translated into modern web technologies.\n\n" +
-                                "Technical Implementation\n" +
-                                "   Physics Port: Translated the gravity and collision logic 1:1 from C structs to JavaScript objects.\n" +
-                                "   Asset-less Rendering: Instead of loading images, the game draws graphics (Bird, Mario-style pipes) programmatically using HTML5 Canvas, mimicking the original hex-bitmap rendering.\n" +
-                                "   Performance: Optimized the game loop to maintain a steady 60 FPS, matching the hardware refresh rate.",
+                        Arrays.asList("Embedded C", "Raspberry Pi 4", "JavaScript", "HTML5 Canvas"), // Tech stack
+                        "https://github.com/billybean93/Bare-Metal-Programming", // GitHub Link
+                        "This project represents a deep dive into low-level computing, recreating the classic Flappy Bird game directly on Raspberry Pi 4 hardware without an Operating System (Bare-Metal), followed by a web adaptation for accessibility.\n" +
+                                "\n" +
+                                "**Part 1: Embedded Engineering (The Original Project)**\n" +
+                                "- **Bare-Metal Architecture:** Developed entirely in C, interfacing directly with the ARM Cortex-A72 hardware registers, completely bypassing standard operating system layers.\n" +
+                                "- **Hardware Control:** Managed low-level peripherals including GPIO for input handling, System Timer for physics timing, and direct memory writing to the Framebuffer for graphics.\n" +
+                                "- **Resource Management:** Implemented manual memory management and optimized collision detection algorithms to run efficiently on the embedded target.\n" +
+                                "\n" +
+                                "**Part 2: The Web Port (Making it Accessible)**\n" +
+                                "Showcasing a bare-metal project usually requires physical hardware, which limits remote demonstrations. To solve this, I created a faithful JavaScript version. This port serves as a bridge, demonstrating how low-level game logic can be translated into modern web technologies.\n" +
+                                "\n" +
+                                "**Web Technical Implementation:**\n" +
+                                "- **Physics & Logic Port:** Translated gravity simulation, velocity calculations, and collision logic 1:1 from C structures to JavaScript objects.\n" +
+                                "- **Asset-less Rendering:** Instead of loading image files, the game draws graphics (Bird, Pipes) programmatically using the HTML5 Canvas API, mimicking the original hex-bitmap rendering technique.\n" +
+                                "- **Performance:** Optimized the game loop to maintain a steady 60 FPS, replicating the smooth hardware refresh rate of the original implementation.", // Long Description
                         "/images/flappybird.png",
                         "game",
                         "/game/flappybird"
@@ -137,21 +140,24 @@ public class PortfolioService {
                 new Project(
                         "tetris-game", // ID
                         "Tetris Game", // Title
-                        "A web-based adaptation of my embedded C Tetris game originally built for Raspberry Pi 4. Rewritten in JavaScript to allow anyone to play directly in the browser.", // Short Description
+                        "Classic Tetris game simulation on Nuvoton M480 microcontroller using emWin graphics library and touchscreen interaction.",
                         Arrays.asList("JavaScript", "HTML5 Canvas", "Algorithm", "C/Embedded (Origin)"), // Tech stack
                         "https://github.com/XwolveX/EEET2481_A3_TETRISGAME",
-                        "Project Origin: The Embedded Version\n" +
-                                "   This project started as a low-level challenge: building a fully functional Tetris game in C for the Raspberry Pi 4.\n" +
-                                "   It originally ran directly on hardware, handling memory management and interacting with GPIO pins for controls and an LCD display.\n\n" +
-                                "Why I Built This Web Version\n" +
-                                "   While the hardware version was a great engineering milestone, it was limited to the physical device and hard to showcase remotely.\n" +
-                                "   I wanted to create a version that is accessible to everyone, allowing friends and recruiters to experience the game logic instantly.\n" +
-                                "   This web port bridges the gap between low-level logic and modern frontend accessibility.\n\n" +
-                                "Technical Implementation\n" +
-                                "   Ported the core game algorithms (collision detection, matrix rotation) from C to JavaScript.\n" +
-                                "   Replaced hardware interrupts with browser DOM Event Listeners for keyboard control.\n" +
-                                "   Rendered graphics using HTML5 Canvas instead of writing to a display buffer.\n" +
-                                "   Optimized the game loop to run smoothly at 60FPS in the browser.",
+                        "This project represents a complete embedded system application that recreates the legendary Tetris gameplay on the Nuvoton M480 microcontroller platform.\n" +
+                                "\n" +
+                                "**Embedded Engineering (The Original Project)**\n" +
+                                "- **GUI Development:** Utilized Segger AppWizard and the emWin library to design intuitive user interfaces, including Welcome, Gameplay, Game Over, and High Score screens.\n" +
+                                "- **Game Logic Processing:** Implemented core Tetris algorithms in C, handling random tetromino generation, collision detection, line clearing, and real-time score calculation.\n" +
+                                "- **Hardware Interaction:** Integrated touchscreen drivers to manage block rotation and movement, replacing traditional physical button controls.\n" +
+                                "\n" +
+                                "**The Web Port**\n" +
+                                "While the hardware version was a significant engineering milestone, it was limited to the physical device and difficult to showcase remotely. I wanted to create a version accessible to everyone, allowing friends and recruiters to experience the game logic instantly. This web port bridges the gap between low-level logic and modern frontend accessibility.\n" +
+                                "\n" +
+                                "**Web Technical Implementation:**\n" +
+                                "- Ported the core game algorithms (collision detection, matrix rotation) directly from C to JavaScript.\n" +
+                                "- Replaced hardware interrupts with browser DOM Event Listeners for keyboard control.\n" +
+                                "- Rendered graphics using HTML5 Canvas instead of writing to a microcontroller display buffer.\n" +
+                                "- Optimized the game loop to run smoothly at 60FPS in the browser.",
                         "/images/tetris.png",
                         "game",
                         "/game/tetris"
@@ -164,11 +170,11 @@ public class PortfolioService {
                 new Skill("Programming Languages",
                         Arrays.asList("C / C++", "Java", "JavaScript", "Kotlin","Flutter", "Python", "SQL","HTML/CSS")),
                 new Skill("Frameworks & Technologies",
-                        Arrays.asList("Jetpack Compose", "Spring Boot","Websocket","java Swing" )),
+                        Arrays.asList("Jetpack Compose", "Spring Boot","Websocket","java Swing")),
                 new Skill("Database",
                         Arrays.asList("Firebase","MySQL","PostgreSQL","ORACLE")),
                 new Skill("Tools & Platforms",
-                        Arrays.asList("Git/GitHub","Android Studio", "IntelliJ IDEA", "VS Code","MatLab")),
+                        Arrays.asList("Git/GitHub","Android Studio", "IntelliJ IDEA", "VS Code","MatLab","Docker")),
                 new Skill("AI-Assisted Development",
                         Arrays.asList("ChatGPT", "Claude", "Gemini","Copilot"))
         );

@@ -289,3 +289,82 @@ window.addEventListener('DOMContentLoaded', function() {
         updateCardPositions();
     }
 });
+// =========================================
+// WHAT CAN I DO SECTION - Animations
+// =========================================
+
+// Create floating particles
+function createParticles() {
+    const particlesContainer = document.getElementById('particles');
+    if (!particlesContainer) return;
+
+    const particleCount = 50;
+
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 15 + 's';
+        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        particlesContainer.appendChild(particle);
+    }
+}
+
+// Animate numbers counting up
+function animateNumbers() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+
+    statNumbers.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+
+        const counter = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                stat.textContent = target + (target === 100 ? '%' : '+');
+                clearInterval(counter);
+            } else {
+                stat.textContent = Math.floor(current) + (target === 100 ? '%' : '+');
+            }
+        }, 16);
+    });
+}
+
+// Intersection Observer for scroll animations
+const capabilityObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.capability-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(50px)';
+    card.style.transition = 'opacity 0.6s, transform 0.6s';
+    capabilityObserver.observe(card);
+});
+
+// Animate stats when in view
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateNumbers();
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+const statsSection = document.querySelector('.stats-section');
+if (statsSection) {
+    statsObserver.observe(statsSection);
+}
+
+// Initialize particles on page load
+window.addEventListener('DOMContentLoaded', () => {
+    createParticles();
+});
