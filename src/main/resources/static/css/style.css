@@ -337,6 +337,8 @@ section {
 }
 
 .video-demo-subtitle {
+    text-align: center;
+    margin-bottom: 2rem;
     color: var(--gray-text);
     font-size: 1rem;
 }
